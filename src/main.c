@@ -12,7 +12,7 @@
 #define SLEEP_TIME_MS   1000
 
 /* The devicetree node identifier for the "led0" alias. */
-#define LED0_NODE DT_ALIAS(led0)
+#define LED0_NODE DT_ALIAS(led1)
 
 /*
  * A build error on this line means your board is unsupported.
