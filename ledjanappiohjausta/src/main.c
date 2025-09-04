@@ -1,4 +1,5 @@
 //Tavoittelen parasta pistemäärää eli 3
+//Onnistuin saamaan kaikki toimimaan
 
 #include <zephyr/kernel.h>
 #include <zephyr/sys/printk.h>
