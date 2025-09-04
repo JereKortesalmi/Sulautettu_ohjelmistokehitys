@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.cmake": "cmake",
+        "gpio.h": "c"
+    }
+}
