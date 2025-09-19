@@ -1,5 +1,5 @@
 // Jere Kortesalmi
-// Tavoite: 2/4 pistettä ja kaikki toimii fifo ja sekvenssit
+// Tavoite: 2/4 pistettä toimii
 
 #include <zephyr/kernel.h>
 #include <zephyr/sys/printk.h>
