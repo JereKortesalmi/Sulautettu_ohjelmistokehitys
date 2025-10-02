@@ -1,5 +1,5 @@
-image:: C:\Users\OMISTAJA\Pictures\Screenshots\ilman_printteja.png
+.. image:: sulautettu_ohjelmisto_kehitys/ilman_printteja.png
    :alt: Printtien kanssa
 
-image:: C:\Users\OMISTAJA\Pictures\Screenshots\printeilla.png
+.. image:: sulautettu_ohjelmisto_kehitys/printeilla.png
    :alt: Ilman printteja
