@@ -1,5 +1,5 @@
-.. image:: sulautettu_ohjelmistokehitys/ilman_printteja.png
-   :alt: Printtien kanssa
+### ilman printtejä
+<img src="./ilman_printteja.png"></img>
 
-.. image:: sulautettu_ohjelmistokehitys/printeilla.png
-   :alt: Ilman printteja
+### printteillä
+<img src="./printeilla.png"></img>
