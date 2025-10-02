@@ -1,5 +1,4 @@
-### ilman printtejä
-<img src="./ilman_printteja.png"></img>
-
-### printteillä
-<img src="./printeilla.png"></img>
+.. image:: ilman_printteja.png
+   :alt: Ilman printtejä
+.. image:: printeilla.png
+   :alt: Printteillä
