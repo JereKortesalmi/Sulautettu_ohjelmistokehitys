@@ -1,6 +1,7 @@
 // Jere Kortesalmi
-// Tehtävä: 1 piste
+// Tehtävä: 2 pistettä
 // parseri lisätty, jos error punainen led, oikein niin vihreä led
+// lisää testikeissejä lisätty
 
 #include <zephyr/kernel.h>
 #include <zephyr/sys/printk.h>
@@ -16,13 +17,16 @@
 #define TIME_LEN_ERROR      -1
 #define TIME_ARRAY_ERROR    -2
 #define TIME_VALUE_ERROR    -3
+#define TIME_ZERO_ERROR     -4  
+#define TIME_NULL_ERROR     -5  
+#define TIME_NONNUM_ERROR   -6 
 
 int time_parse(const char *time) {
-    if (!time) return TIME_ARRAY_ERROR;
-    if (strlen(time) != 6) return TIME_LEN_ERROR;
 
+    if (!time) return TIME_NULL_ERROR;
+    if (strlen(time) != 6) return TIME_LEN_ERROR;
     for (int i = 0; i < 6; i++) {
-        if (time[i] < '0' || time[i] > '9') return TIME_ARRAY_ERROR;
+        if (!isdigit((unsigned char)time[i])) return TIME_NONNUM_ERROR;
     }
 
     int hh = (time[0] - '0') * 10 + (time[1] - '0');
@@ -33,7 +37,11 @@ int time_parse(const char *time) {
     if (mm < 0 || mm > 59) return TIME_VALUE_ERROR;
     if (ss < 0 || ss > 59) return TIME_VALUE_ERROR;
 
-    return hh * 3600 + mm * 60 + ss;
+    int total_sec = hh * 3600 + mm * 60 + ss;
+
+    if (total_sec == 0) return TIME_ZERO_ERROR;
+
+    return total_sec;
 }
 
 #define STACKSIZE 500
@@ -188,8 +196,6 @@ void green_led_task(void *, void *, void*) {
 // UART task 
 char buffer[10];
 int index = 0;
-char buffer[10];
-int index = 0;
 
 void uart_task(void *, void *, void *) {
     unsigned char ch;
@@ -204,7 +210,7 @@ void uart_task(void *, void *, void *) {
                 buffer[index] = '\0'; 
 
               
-                int ret = parser(buffer);
+                int ret = time_parse(buffer);
 
                 if (ret >= 0) {
                     // Oikea syöte vihreä led
